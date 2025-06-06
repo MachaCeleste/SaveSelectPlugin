@@ -25,7 +25,7 @@ public class MenuInicioPatch
                 var imageObj = save.transform.Find("Image");
                 Object.DestroyImmediate(imageObj.GetComponent<Image>());
                 var image = imageObj.gameObject.AddComponent<Image>();
-                image.sprite = BundleTool.GetSprite("Assets/Export/snapshot.png");
+                image.sprite = BundleTool.GetSprite("Assets/SaveSelectPlugin/snapshot.png");
                 image.color = Color.black;
                 var oldButton = save.GetComponent<Button>();
                 var colors = oldButton.colors;
