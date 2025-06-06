@@ -4,7 +4,7 @@
     <TargetFramework>net46</TargetFramework>
     <AssemblyName>SaveSelectPlugin</AssemblyName>
     <Product></Product>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -453,6 +453,6 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if not exist &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\&quot; mkdir &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\&quot;&#xA;copy /Y &quot;$(TargetPath)&quot; &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\$(ProjectName).dll&quot;&#xA;if &quot;$(Configuration)&quot; == &quot;Release&quot; &quot;C:\Program Files\WinRAR\WinRAR.exe&quot; a -r -ep1 &quot;$(SolutionDir)bin\$(Configuration)\$(ProjectName).rar&quot; &quot;$(SolutionDir)bin\$(Configuration)\BepInEx&quot;" />
+    <Exec Command="if not exist &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\&quot; mkdir &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\&quot;&#xA;copy /Y &quot;$(ProjectDir)$(ProjectName).bundle&quot; &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\$(ProjectName).bundle&quot;&#xA;copy /Y &quot;$(TargetPath)&quot; &quot;$(SolutionDir)bin\$(Configuration)\BepInEx\plugins\$(ProjectName)\$(ProjectName).dll&quot;&#xA;if &quot;$(Configuration)&quot; == &quot;Release&quot; &quot;C:\Program Files\WinRAR\WinRAR.exe&quot; a -r -ep1 &quot;$(SolutionDir)bin\$(Configuration)\$(ProjectName).rar&quot; &quot;$(SolutionDir)bin\$(Configuration)\BepInEx&quot;" />
   </Target>
 </Project>

@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using AssetBundleTools;
+using HarmonyLib;
 using SaveSelectPlugin;
 using TMPro;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class MenuInicioPatch
                 var imageObj = save.transform.Find("Image");
                 Object.DestroyImmediate(imageObj.GetComponent<Image>());
                 var image = imageObj.gameObject.AddComponent<Image>();
-                image.sprite = DataUtils.bundle.LoadAsset<Sprite>("Assets/Export/snapshot.png");
+                image.sprite = BundleTool.GetSprite("Assets/Export/snapshot.png");
                 image.color = Color.black;
                 var oldButton = save.GetComponent<Button>();
                 var colors = oldButton.colors;

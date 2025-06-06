@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using AssetBundleTools;
+using HarmonyLib;
 using SaveSelectPlugin;
 using System.Linq;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class BiosMenuPatch
     {
         static void Postfix(BiosMenu __instance)
         {
-            var myPanel = DataUtils.GetPrefab("Assets/Export/SavePanel.prefab");
+            var myPanel = BundleTool.GetPrefab("Assets/SaveSelectPlugin/SavePanel.prefab");
             var savePanel = UnityEngine.Object.Instantiate(myPanel, GameObject.Find("MainMenu/MainPanel/MidPanel/PanelGame/PanelOptions/PlayGame").transform);
             savePanel.name = "SavePanel";
             savePanel.AddComponent<SavePanel>();

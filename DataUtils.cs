@@ -11,7 +11,6 @@ namespace SaveSelectPlugin
     public class DataUtils
     {
         public static string lastSave;
-        public static AssetBundle bundle;
         private static string saveFolder = Path.Combine(Application.dataPath, "Saves");
 
         public static void SaveGreyDbName()
@@ -144,28 +143,6 @@ namespace SaveSelectPlugin
                 return false;
             }
             return true;
-        }
-
-        public static void LoadBundle(string name)
-        {
-            string bundlePath = Path.Combine(Paths.PluginPath, MyPluginInfo.PLUGIN_NAME, name);
-            if (!File.Exists(bundlePath))
-            {
-                Plugin.Logger.LogError($"Asset bundle {name} not found!");
-                return;
-            }
-
-            bundle = AssetBundle.LoadFromFile(bundlePath);
-            if (bundle == null)
-            {
-                Plugin.Logger.LogError($"Failed to load bundle!");
-                return;
-            }
-        }
-
-        public static GameObject GetPrefab(string path)
-        {
-            return DataUtils.bundle.LoadAsset<GameObject>(path);
         }
     }
 

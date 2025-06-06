@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿using AssetBundleTools;
+using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 
@@ -13,7 +14,7 @@ public class Plugin : BaseUnityPlugin
     {
         Logger = base.Logger;
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
-        DataUtils.LoadBundle("asset.bundle");
+        BundleTool.LoadBundle();
         var harmony = new Harmony("com.machaceleste.saveselectplugin");
         harmony.PatchAll();
     }
